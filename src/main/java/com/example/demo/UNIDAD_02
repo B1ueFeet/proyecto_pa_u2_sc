@@ -1,0 +1,44 @@
+*************************************************************************
+**********                    UNIDAD II                     *************
+************************************************************************* 
+
+Repository = DAO
+
+ORM				=Mapeo Objeto-Relacional (object relational mapping)
+				vincular objetos con bases de datos
+				
+*************************************************************************
+**********   nota : conjunto de reglas / especificaciones   *************
+************************************************************************* 
+				
+JPA/				Java Persistem Api
+				Jakarta Persistem Api
+				- especifiacaion de java que permite realizar ORM
+
+Existe un conjunto de frameworks que permiten implementar JPA (EclipseLink/ Hibernate <- este vamos a usar)
+
+especificaciones		politicas directrices etc
+Hibernate 				framework que implementa estas especificacoines
+
+*************************************************************************
+**********   nota : Hacer maven Intall siempre perro        *************
+************************************************************************* 
+
+en maven tienen varios perfiles "profile"
+buscar manejos de perfiles en maven (sentencia pom)
+
+
+****************************** PASOS NECESARIOS ***************************
+1) ORM (concepto)  -> JPA (especificaciones)  ->  Hibernate (Framework)
+2) Driver de base de datos
+3) Configuraciones de coneccion
+
+para crear la relacion se necesita dos anotaciones
+@Entity						
+@Table(name="nombre de la tabla")		<- Para relacionar la tabla con la clase
+@Column(name = "nombre de la columna")	<- Para los atributos de la Tabla
+@Id 									<- para la primary Key
+@@PersistenceContext					<- 
+
+
+Interfaz Entity Manager		punto principal para interacctuar con la base de datos

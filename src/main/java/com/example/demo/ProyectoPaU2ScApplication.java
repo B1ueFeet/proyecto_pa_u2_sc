@@ -6,12 +6,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.service.IEstudianteService;
+import com.example.demo.service.IProfesorService;
 import com.example.demo.uce.modelo.Estudiante;
+import com.example.demo.uce.modelo.Profesor;
 
 @SpringBootApplication
 public class ProyectoPaU2ScApplication implements CommandLineRunner{
 	@Autowired
-	private IEstudianteService estudianteService;
+	private IProfesorService iProfesorService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoPaU2ScApplication.class, args);
@@ -20,25 +22,17 @@ public class ProyectoPaU2ScApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		Estudiante estudiante = new Estudiante();
-		estudiante.setApellido("Castillo");
-		estudiante.setCedula("1717844466");
-		estudiante.setCiudad("Quito");
-		estudiante.setGenero("M");
-		estudiante.setNombre("Serghy");
+		Profesor profesor = new Profesor();
+		profesor.setApellido("Castillo");
+		profesor.setCedula("1717844466");
+		profesor.setCiudad("Quito");
+		profesor.setGenero("M");
+		profesor.setNombre("Serghy");
+		profesor.setMateria("Agronomia de la computadora");
 		
-		this.estudianteService.crear(estudiante);
-		
-		estudiante.setCiudad("Puyo");
-		
-		this.estudianteService.actualizar(estudiante);
+		this.iProfesorService.ingresar(profesor);
 		
 
-		
-		//this.estudianteService.eliminar(2);
-		
-		
-		System.out.println(this.estudianteService.buscar(2).toString());
 	}
 
 }

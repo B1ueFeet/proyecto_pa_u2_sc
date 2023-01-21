@@ -5,7 +5,7 @@
 Repository = DAO
 
 ORM				=Mapeo Objeto-Relacional (object relational mapping)
-				vincular objetos con bases de datos
+				vincular objetos con bases de datos                                                                                                                                                                                                                                                                                                                                                                                                                                  
 				
 *************************************************************************
 **********   nota : conjunto de reglas / especificaciones   *************
@@ -42,3 +42,8 @@ para crear la relacion se necesita dos anotaciones
 
 
 Interfaz Entity Manager		punto principal para interacctuar con la base de datos
+
+
+hacer el crud de profesor
+
+

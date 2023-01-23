@@ -12,13 +12,10 @@ public class CiudadanoServiceImpl implements ICiudadanoService {
 
 	@Autowired
 	private ICiudadanoRepo ciudadanoRepo;
-	@Autowired
-	private IEmpleadoRepo empleadoRepo;
 
 	@Override
 	public void ingresar(Ciudadano ciudadano) {
 		// TODO Auto-generated method stub
-		this.empleadoRepo.insertar(ciudadano.getEmpleado());
 		this.ciudadanoRepo.insertar(ciudadano);
 		
 	}

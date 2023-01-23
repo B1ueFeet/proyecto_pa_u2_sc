@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.repository.ICiudadanoRepo;
+import com.example.demo.repository.IEmpleadoRepo;
 import com.example.demo.uce.modelo.Ciudadano;
 
 @Service
@@ -11,10 +12,34 @@ public class CiudadanoServiceImpl implements ICiudadanoService {
 
 	@Autowired
 	private ICiudadanoRepo ciudadanoRepo;
+	@Autowired
+	private IEmpleadoRepo empleadoRepo;
+
 	@Override
 	public void ingresar(Ciudadano ciudadano) {
 		// TODO Auto-generated method stub
+		this.empleadoRepo.insertar(ciudadano.getEmpleado());
 		this.ciudadanoRepo.insertar(ciudadano);
+		
+	}
+
+	@Override
+	public void modificar(Ciudadano ciudadano) {
+		// TODO Auto-generated method stub
+		this.ciudadanoRepo.actualizar(ciudadano);
+
+	}
+
+	@Override
+	public Ciudadano encontrar(Integer id) {
+		// TODO Auto-generated method stub
+		return this.ciudadanoRepo.buscar(id);
+	}
+
+	@Override
+	public void remover(Integer id) {
+		// TODO Auto-generated method stub
+		this.ciudadanoRepo.eliminar(id);
 	}
 
 }

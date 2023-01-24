@@ -31,7 +31,7 @@ public class ProyectoPaU2ScApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		//NOMBRES APELLIDOS Y SALARIO RANDOMICOS
-		Random rd = new Random();
+		/*Random rd = new Random();
 		List<String> nombres = new ArrayList<>();
 		nombres.add("Serghy");
 		nombres.add("Omar");
@@ -52,37 +52,29 @@ public class ProyectoPaU2ScApplication implements CommandLineRunner {
 		Ciudadano ciudadano = new Ciudadano();
 		ciudadano.setApellido(this.getRandomElement(apellidos));
 		ciudadano.setNombre(this.getRandomElement(nombres));
-		this.ciudadanoService.ingresar(ciudadano);
 
 		Empleado empleado = new Empleado();
 		empleado.setFechaIngreso(LocalDateTime.now());
 		empleado.setSalario(new BigDecimal(rd.nextInt(100, 500)));
 		empleado.setCiudadano(ciudadano);
 		ciudadano.setEmpleado(empleado);	
-		this.empleadoService.ingresar(empleado);
-		
-		//EDIT
-		Empleado empleadoEditar = this.empleadoService.encontrar(1);
-		Ciudadano ciudadanoEditar = this.ciudadanoService.encontrar(1);
-		
-		ciudadanoEditar.setApellido("Yautibug");
-		empleadoEditar.setSalario(new BigDecimal(1000000));
-		
-		this.ciudadanoService.modificar(ciudadanoEditar);
-		this.empleadoService.modificar(empleadoEditar);
-		
-		//SEARCH
-		
-		System.out.println("Ciudadano actual: \n" + this.ciudadanoService.encontrar(1).toString());
-		System.out.println("con datos de empleado: \n" + this.empleadoService.encontrar(1).toString());
-		
-		//DELETE
-		
-		System.out.println("este ciudadadano va a ser eliminado");
-		
-		this.empleadoService.remover(1);
-		this.ciudadanoService.remover(1);
 
+		this.ciudadanoService.ingresar(ciudadano);
+		
+
+
+		//CREATE
+		Ciudadano ciudadano2 = new Ciudadano();
+		ciudadano2.setApellido(this.getRandomElement(apellidos));
+		ciudadano2.setNombre(this.getRandomElement(nombres));
+
+		Empleado empleado2 = new Empleado();
+		empleado2.setFechaIngreso(LocalDateTime.now());
+		empleado2.setSalario(new BigDecimal(rd.nextInt(100, 500)));
+		empleado2.setCiudadano(ciudadano2);
+		ciudadano2.setEmpleado(empleado2);	
+
+		this.empleadoService.ingresar(empleado2); */
 
 	}
 

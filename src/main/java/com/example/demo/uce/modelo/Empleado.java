@@ -29,7 +29,7 @@ public class Empleado {
 	@Column(name = "empl_fecha_ingreso")
 	private LocalDateTime fechaIngreso;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "empl_id_ciudadano")
 	private Ciudadano ciudadano;
 

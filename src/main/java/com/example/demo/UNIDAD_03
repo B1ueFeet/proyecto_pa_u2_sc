@@ -7,3 +7,12 @@ RELACIONES ENTRE TABLAS
 	└►	1 - 1 			:	suelen entenderse como una unica tabla 
 	└►	1 - varios		:	relaciones de un objeto a varias (estudiante - matriculas)
 	└►	varios - varios	: 	relaciones de muchos a mkuchos (tabla de rompimiento)
+
+	cascade se usa para las operaciones en secuencia de entidades
+	
+	REMOVE			remover en cascada
+	MERGE			actualizar en cascada
+	PERSIST			insertar en cascada
+	ALL				todo en cascada
+	REFRESH 		actualizacion en un objeto que se ha buscado de manera inmediata y avanzada 	
+	DETACH			desenlazar en casacada

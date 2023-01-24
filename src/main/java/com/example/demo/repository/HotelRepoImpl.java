@@ -2,7 +2,7 @@ package com.example.demo.repository;
 
 import org.springframework.stereotype.Repository;
 
-import com.example.demo.uce.modelo.Empleado;
+import com.example.demo.uce.modelo.Hotel;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -10,27 +10,27 @@ import jakarta.transaction.Transactional;
 
 @Transactional
 @Repository
-public class EmpleadoRepoImpl implements IEmpleadoRepo {
+public class HotelRepoImpl implements IHotelRepo{
 
 	@PersistenceContext
 	private EntityManager manager;
-
+	
 	@Override
-	public void insertar(Empleado empleado) {
+	public void insertar(Hotel hotel) {
 		// TODO Auto-generated method stub
-		this.manager.persist(empleado);
+		this.manager.persist(hotel);
 	}
 
 	@Override
-	public void actualizar(Empleado empleado) {
+	public void actualizar(Hotel hotel) {
 		// TODO Auto-generated method stub
-		this.manager.merge(empleado);
+		this.manager.merge(hotel);
 	}
 
 	@Override
-	public Empleado buscar(Integer id) {
+	public Hotel buscar(Integer id) {
 		// TODO Auto-generated method stub
-		return this.manager.find(Empleado.class, id);
+		return this.manager.find(Hotel.class, id);
 	}
 
 	@Override

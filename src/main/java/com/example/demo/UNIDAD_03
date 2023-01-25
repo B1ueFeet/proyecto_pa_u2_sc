@@ -16,3 +16,9 @@ RELACIONES ENTRE TABLAS
 	ALL				todo en cascada
 	REFRESH 		actualizacion en un objeto que se ha buscado de manera inmediata y avanzada 	
 	DETACH			desenlazar en casacada
+	
+	EAGER			asi no se necesite trae las relaciones
+	LAZILY			trae cuando sea necesario en la capa Repo
+	
+	NOTA: Jakarta persitence no trae las relaciones por defecto (Lazily) 
+	

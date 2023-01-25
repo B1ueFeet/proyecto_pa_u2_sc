@@ -11,6 +11,8 @@ public interface IHotelRepo {
 
 	public Hotel buscar(Integer id);
 
+	public Hotel buscarpesado(Integer id);
+
 	public void eliminar(Integer id);
 
 }

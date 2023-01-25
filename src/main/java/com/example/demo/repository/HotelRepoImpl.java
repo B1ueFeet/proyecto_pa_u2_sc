@@ -30,7 +30,7 @@ public class HotelRepoImpl implements IHotelRepo{
 	@Override
 	public Hotel buscar(Integer id) {
 		Hotel hotel =this.manager.find(Hotel.class, id);
-		hotel.getHabitaciones();
+		hotel.getHabitaciones().size();
 		return hotel;
 	}
 

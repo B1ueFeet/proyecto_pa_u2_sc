@@ -1,13 +1,17 @@
 package com.example.demo;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.service.IAlumnoService;
-import com.example.demo.uce.modelo.Alumno;
-import com.example.demo.uce.modelo.Contacto;
+import com.example.demo.service.IFacturaService;
+import com.example.demo.uce.modelo.Detalle;
+import com.example.demo.uce.modelo.Factura;
 
 @SpringBootApplication
 public class ProyectoPaU2ScApplication implements CommandLineRunner {
@@ -17,24 +21,39 @@ public class ProyectoPaU2ScApplication implements CommandLineRunner {
 	}
 
 	@Autowired
-	private IAlumnoService alumnoService;
+	private IFacturaService facturaService;
 
 	@Override
 	public void run(String... args) throws Exception {
 
-		Alumno alumno = new Alumno();
-		alumno.setApellido("Garcia");
-		alumno.setEdad("12");
-		alumno.setNombre("Serghy");
+		Factura factura = new Factura();
+		factura.setCliente("Alejandro Magno");
+		factura.setNumero("1234");
 
-		Contacto contacto = new Contacto();
-		contacto.setEmail("socastillo@uce.edu.ec");
-		contacto.setTelefono("023021832");
-		contacto.setAlumno(alumno);
+		List<Detalle> detalles = new ArrayList<>();
 
-		alumno.setContacto(contacto);
+		Detalle detalle = new Detalle();
+		detalle.setCantidad(30);
+		detalle.setNombre("Calabaza");
+		detalle.setPrecio(new BigDecimal(30));
+		detalle.setFactura(factura);
 
-		this.alumnoService.inscribir(alumno);
+		Detalle detalle2 = new Detalle();
+		detalle2.setCantidad(2);
+		detalle2.setNombre("Antorcha");
+		detalle2.setPrecio(new BigDecimal(10));
+		detalle2.setFactura(factura);
+
+		Detalle detalle3 = new Detalle();
+		detalle3.setCantidad(1);
+		detalle3.setNombre("Mazo");
+		detalle3.setPrecio(new BigDecimal(4));
+		detalle3.setFactura(factura);
+
+		factura.setDetalle(detalles);
+
+		this.facturaService.generar(factura);
+
 	}
 
 }

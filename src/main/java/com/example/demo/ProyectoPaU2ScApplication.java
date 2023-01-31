@@ -1,17 +1,16 @@
 package com.example.demo;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.service.IHabitacionService;
-import com.example.demo.service.IHotelService;
-import com.example.demo.uce.modelo.Habitacion;
-import com.example.demo.uce.modelo.Hotel;
+import com.example.demo.service.IAutorService;
+import com.example.demo.uce.modelo.Autor;
+import com.example.demo.uce.modelo.Libro;
 
 @SpringBootApplication
 public class ProyectoPaU2ScApplication implements CommandLineRunner {
@@ -21,30 +20,67 @@ public class ProyectoPaU2ScApplication implements CommandLineRunner {
 	}
 
 	@Autowired
-	private IHotelService hotelService;
-	
-	@Autowired
-	private IHabitacionService habitacionService;
+	private IAutorService autorService;
 	
 	@Override
 	public void run(String... args) throws Exception {
-		
 
-		Hotel hotel = this.hotelService.encontrar(1);
+		Autor autor = new Autor();
+		Autor autor2 = new Autor();
+		Autor autor3 = new Autor();
+		Autor autor4 = new Autor();
 		
 		
-		System.out.println("Hotel: "+ hotel.getNombre());
-		hotel.getHabitaciones().forEach(System.out::println);
-			
+		autor.setNombre("WS");
+		autor2.setNombre("WY");
+		autor3.setNombre("JS");
+		autor4.setNombre("OM");
 		
-		//System.out.println(this.hotelService.encontrar(1).getHabitaciones().get(0).toString());
-	
+		Libro libro = new Libro();
+		Libro libro2 = new Libro();
 		
+		libro.setEditorial("NORMA");
+		libro2.setEditorial("Patito");
 		
+		libro.setNombre("P. Web");
+		libro2.setNombre("Redes");
+		
+		Set<Autor> autores = new HashSet<>();
+		Set<Autor> autores2 = new HashSet<>();
+		Set<Libro> libros = new HashSet<>();
+		Set<Libro> libros2 = new HashSet<>();
+		Set<Libro> libros3 = new HashSet<>();
+		
+		autores.add(autor);
+		autores.add(autor4);
+		
+		autores2.add(autor);
+		autores2.add(autor2);
+		autores2.add(autor3);
+		
+		libros.add(libro2);
+		
+		libros3.add(libro);
+		
+		libros2.add(libro);
+		libros2.add(libro2);
+		
+		autor.setLibros(libros2);
+		
+		autor2.setLibros(libros);
+		
+		autor3.setLibros(libros);
+		
+		autor4.setLibros(libros3);
+		
+		libro.setAutores(autores);
+		
+		libro2.setAutores(autores2);
+		
+		this.autorService.guardar(autor);
 
 		
 		
-
 	}
 
 }
